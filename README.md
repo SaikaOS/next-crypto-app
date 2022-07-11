@@ -1,2 +1,2 @@
-# next-crypto-app
-Crypto App with Next + TS + Tailwind CSS
+# react-shopping-app
+Shopping App with React + TypeScript + TailwindCSS
