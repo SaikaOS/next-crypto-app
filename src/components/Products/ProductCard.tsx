@@ -15,7 +15,7 @@ function ProductCard() {
   const { inputValue } = useContext(InputContext);
   const { isSubmitted } = useContext(InputContext);
 
-  const filteredCards = cards.filter((card) => {
+  const filteredCards = cards.filter((card: ICard) => {
     return card.title.toLowerCase().includes(inputValue.toLowerCase());
   });
 
@@ -26,8 +26,10 @@ function ProductCard() {
   return (
     <div className="grid grid-cols-1 md:grid-cols-4 gap-5 my-10">
       {isSubmitted
-        ? filteredCards.map((card) => <ProductItem key={card.id} card={card} />)
-        : cards.map((card) => <ProductItem key={card.id} card={card} />)}
+        ? filteredCards.map((card: ICard) => (
+            <ProductItem key={card.id} card={card} />
+          ))
+        : cards.map((card: ICard) => <ProductItem key={card.id} card={card} />)}
     </div>
   );
 }

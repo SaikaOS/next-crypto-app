@@ -2,7 +2,6 @@ import { FormEvent, useContext } from "react";
 import { InputContext } from "../../App";
 import MyButton from "../UI/MyButton";
 import MyInput from "../UI/MyInput";
-import MySelect from "../UI/MySelect";
 
 function HeaderForm() {
   const { isSubmitted, setIsSubmitted } = useContext(InputContext);
@@ -17,7 +16,6 @@ function HeaderForm() {
     >
       <MyInput />
       <MyButton />
-      <MySelect />
     </form>
   );
 }

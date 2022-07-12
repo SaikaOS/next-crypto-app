@@ -10,9 +10,18 @@ function App() {
   const handleChange = (event: FormEvent<HTMLInputElement>) => {
     const value = event.currentTarget.value;
     setInputValue(value);
+    setIsSubmitted(false);
   };
   return (
-    <InputContext.Provider value={{ inputValue, setInputValue, handleChange, isSubmitted, setIsSubmitted }}>
+    <InputContext.Provider
+      value={{
+        inputValue,
+        setInputValue,
+        handleChange,
+        isSubmitted,
+        setIsSubmitted,
+      }}
+    >
       <div className="container mx-auto max-w-[1080px]">
         <Header />
         <ProductCard />

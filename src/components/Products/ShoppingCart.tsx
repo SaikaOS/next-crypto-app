@@ -1,8 +1,10 @@
 import React from 'react'
 
-function ShoppingCart() {
+function ShoppingCart({isActive, setIsActive}:any) {
   return (
-    <div>ShoppingCart</div>
+    <div className={isActive ? 'flex w-[400px] bg-gray-400' : 'hidden'}>
+      <h1>hello</h1>
+    </div>
   )
 }
 

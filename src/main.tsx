@@ -1,7 +1,7 @@
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import App from "./App";
-import SingleItem from "../src/components/Products/SingleItem"
+import SingleItem from "../src/components/Products/SingleItem";
 import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
