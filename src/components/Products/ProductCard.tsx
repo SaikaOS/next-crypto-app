@@ -13,6 +13,7 @@ export interface ICard {
 function ProductCard() {
   const [cards, setCards] = useState<ICard[]>([]);
   const { inputValue } = useContext(InputContext);
+  const { isSubmitted } = useContext(InputContext);
 
   const filteredCards = cards.filter((card) => {
     return card.title.toLowerCase().includes(inputValue.toLowerCase());
@@ -21,11 +22,12 @@ function ProductCard() {
   useEffect(() => {
     useFetch("https://dummyjson.com/products?&limit=20", setCards);
   }, []);
+
   return (
     <div className="grid grid-cols-1 md:grid-cols-4 gap-5 my-10">
-      {filteredCards.map((card) => (
-        <ProductItem key={card.id} card={card} />
-      ))}
+      {isSubmitted
+        ? filteredCards.map((card) => <ProductItem key={card.id} card={card} />)
+        : cards.map((card) => <ProductItem key={card.id} card={card} />)}
     </div>
   );
 }

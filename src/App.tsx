@@ -6,12 +6,13 @@ export const InputContext = createContext<any>({});
 
 function App() {
   const [inputValue, setInputValue] = useState<string>("");
+  const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
   const handleChange = (event: FormEvent<HTMLInputElement>) => {
     const value = event.currentTarget.value;
     setInputValue(value);
   };
   return (
-    <InputContext.Provider value={{ inputValue, setInputValue, handleChange }}>
+    <InputContext.Provider value={{ inputValue, setInputValue, handleChange, isSubmitted, setIsSubmitted }}>
       <div className="container mx-auto max-w-[1080px]">
         <Header />
         <ProductCard />

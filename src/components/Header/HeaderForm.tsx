@@ -1,11 +1,14 @@
-import { FormEvent } from "react";
+import { FormEvent, useContext } from "react";
+import { InputContext } from "../../App";
 import MyButton from "../UI/MyButton";
 import MyInput from "../UI/MyInput";
 import MySelect from "../UI/MySelect";
 
 function HeaderForm() {
+  const { isSubmitted, setIsSubmitted } = useContext(InputContext);
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setIsSubmitted(!isSubmitted);
   };
   return (
     <form

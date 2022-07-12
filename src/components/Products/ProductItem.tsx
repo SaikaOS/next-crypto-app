@@ -12,7 +12,7 @@ function ProductItem({ card }: any) {
         key={card.id}
         className="border-2 flex flex-col justify-around items-center h-[350px] rounded-xl p-4"
       >
-        <Link to={`/${card.id}`}>
+        <Link to={`/products/${card.id}`}>
           <div className="flex flex-col items-center">
             <p>
               {card.title.length >= 25

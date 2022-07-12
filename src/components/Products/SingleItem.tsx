@@ -28,9 +28,7 @@ function SingleItem() {
         {item?.images.map((image) => (
           <img
             src={image}
-            width="200px"
-            height="200px"
-            className="object-cover"
+            className="w-[200px] h-[200px] object-cover"
           />
         ))}
       </div>

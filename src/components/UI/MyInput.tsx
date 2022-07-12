@@ -3,6 +3,7 @@ import { InputContext } from "../../App";
 
 function MyInput() {
   const { inputValue, handleChange } = useContext(InputContext);
+  
   return (
     <input
       type="text"
