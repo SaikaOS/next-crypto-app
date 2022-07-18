@@ -1,10 +1,22 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { add, remove } from "../../store/slice/cartSlice";
+import { useAppDispatch } from "../../store/store";
 
-function ProductItem({ card }: any) {
+function ProductItem({ card}: any) {
   const [state, setState] = useState<boolean>(false);
+  const dispatch = useAppDispatch();
   function toggleClick() {
     setState(!state);
+  }
+  const addToCart = (card:any) => {
+    toggleClick()
+    dispatch(add(card))
+  }
+
+  const removeFromCart = ({id}:any) => {
+    toggleClick()
+    dispatch(remove({id}))
   }
   return (
     <>
@@ -26,14 +38,14 @@ function ProductItem({ card }: any) {
         {state ? (
           <button
             className="border-2 bg-white text-black p-2 rounded-md"
-            onClick={toggleClick}
+            onClick={() => removeFromCart({id: card.id})}
           >
             Remove from Cart
           </button>
         ) : (
           <button
             className="border-2 bg-black text-white p-2 rounded-md"
-            onClick={toggleClick}
+            onClick={() => addToCart(card)}
           >
             Add to Cart
           </button>

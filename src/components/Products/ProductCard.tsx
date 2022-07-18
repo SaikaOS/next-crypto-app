@@ -4,7 +4,7 @@ import { useFetch } from "../hooks/useFetch";
 import ProductItem from "./ProductItem";
 
 export interface ICard {
-  id: number;
+  id?: number;
   title: string;
   price: number;
   thumbnail: string;
@@ -14,7 +14,6 @@ function ProductCard() {
   const [cards, setCards] = useState<ICard[]>([]);
   const { inputValue } = useContext(InputContext);
   const { isSubmitted } = useContext(InputContext);
-
   const filteredCards = cards.filter((card: ICard) => {
     return card.title.toLowerCase().includes(inputValue.toLowerCase());
   });
