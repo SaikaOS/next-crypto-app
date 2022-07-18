@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { useFetch } from "../hooks/useFetch";
 
 interface Item {
+  id: number;
   title: string;
   description: string;
   price: number;
@@ -11,11 +12,16 @@ interface Item {
   images: string[];
 }
 
-function SingleItem() {
-  let id = useParams();
+function SingleItem() { 
+  const {id} = useParams();
   const [item, setItem] = useState<Item>();
   useEffect(() => {
-    useFetch(`https://dummyjson.com/products/${id.id}`, setItem);
+    const fetchData = async () => {
+      const res = await fetch(`https://dummyjson.com/products/${id}`);
+      const products  = await res.json();
+      setItem(products);
+    };
+    fetchData();
   }, []);
   return (
     <div>
@@ -27,6 +33,7 @@ function SingleItem() {
       <div className="flex justify-around">
         {item?.images.map((image) => (
           <img
+          key={item.id}
             src={image}
             className="w-[200px] h-[200px] object-cover"
           />
