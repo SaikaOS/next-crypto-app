@@ -15,14 +15,12 @@ interface Item {
 function SingleItem() { 
   const {id} = useParams();
   const [item, setItem] = useState<Item>();
-  useEffect(() => {
-    const fetchData = async () => {
-      const res = await fetch(`https://dummyjson.com/products/${id}`);
-      const products  = await res.json();
-      setItem(products);
-    };
-    fetchData();
-  }, []);
+  const fetchData = async () => {
+    const res = await fetch(`https://dummyjson.com/products/${id}`);
+    const products  = await res.json();
+    setItem(products);
+  };
+  fetchData();
   return (
     <div>
       <h1>{item?.title} </h1>
