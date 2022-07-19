@@ -22,18 +22,20 @@ function SingleItem() {
   };
   fetchData();
   return (
-    <div>
-      <h1>{item?.title} </h1>
+    <div className="flex justify-around items-center min-h-screen">
+      <div>
+      <h1>{item?.title}</h1>
       <p>{item?.description}</p>
       <p>{item?.price}</p>
       <p>{item?.brand}</p>
       <p>{item?.category}</p>
-      <div className="flex justify-around">
+      </div>
+      <div className="flex justify-around flex-wrap w-[500px]">
         {item?.images.map((image) => (
           <img
-          key={item.id}
+          key={image}
             src={image}
-            className="w-[200px] h-[200px] object-cover"
+            className="w-[150px] h-[150px] object-cover"
           />
         ))}
       </div>
